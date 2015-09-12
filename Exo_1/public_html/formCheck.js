@@ -11,11 +11,14 @@ var identifiant = document.getElementById("identifiant");
 var mdp = document.getElementById("mdp");
 var vmdp = document.getElementById("vmdp");
 var cgu = document.getElementById("cgu");
+var soumettre = document.getElementById("soumettre");
+var ava = document.getElementById("avancement");
 
 age.addEventListener(keypress, verifAge());
 identifiant.addEventListener(keypress, verifId());
 mdp.addEventListener(keypress, verifMdp());
 vmdp.addEventLsitener(keypress, verifVmdp());
+cgu.addEventListener(keypress, verifCGU());
 
 function verifId()
 {
@@ -119,10 +122,16 @@ function verifMdp()
         avancement(-20);
         autre = 0;
     }
+    
+    if(ava.value === 100) {
+        color(mdp, false);
+    } else if(ava.value !== 100) {
+        color(mdp, true);
+    }
 }
 
 function verifVmdp() {
-    if(vmdp.value !== mdp.value) {
+    if (vmdp.value !== mdp.value) {
         color(vmdp, true);
     } else {
         color(vmdp, false);
@@ -130,11 +139,19 @@ function verifVmdp() {
 }
 
 function avancement(val) {
-    var ava = document.getElementById("avancement");
+    
     if ((ava.value + val) <= ava.max && (ava.value + val) >= 0)
     {
         ava.value += val;
     }
     var prc = document.getElementById("pourcentage");
     prc.innerHTML = ava.value + "%";
+}
+
+function verifCGU() {
+    if (cgu.checked && verifId(true) && verifVmdp(true) && verifAge(true)) {
+        soumettre.disabled = false;
+    } else {
+        soumettre.disabled =true;
+    }
 }

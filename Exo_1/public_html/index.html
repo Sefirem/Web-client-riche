@@ -45,10 +45,10 @@ and open the template in the editor.
                 </div>
                 <div>
                     <label for="cgu">J'accepte les conditions d'utilisations :</label>
-                    <INPUT type="checkbox" name="choix1" value="1" id="cgu">
+                    <INPUT type="checkbox" name="choix1" value="1" id="cgu" onchange="verifCGU()">
                 </div>
                 <div>
-                    <INPUT type="button" name="soumettre" value="soumettre" disabled>
+                    <INPUT type="button" name="soumettre" value="soumettre" id="soumettre" disabled>
                 </div>
             </form>
         </div>
