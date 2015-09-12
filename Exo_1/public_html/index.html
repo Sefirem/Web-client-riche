@@ -34,14 +34,14 @@ and open the template in the editor.
                     <label for="mdp">Mot de passe :</label>
                     <input type="text" id="mdp" onchange="verifMdp()"/>
                 </div>
-                <div class="bar">
+                <div>
                     <label for="mdp">Puissance du mot de passe</label>
-                    <progress id="avancement" value="0" max="100" onchange="avancement()"></progress>
+                    <progress id="avancement" value="0" max="100"></progress>
                     <span id="pourcentage"></span>
                 </div>
                 <div>
                     <label for="mdp">Confirmer le mot de passe :</label>
-                    <input type="text" id="vmdp" />
+                    <input type="text" id="vmdp" onchange="verifVmdp()"/>
                 </div>
                 <div>
                     <label for="cgu">J'accepte les conditions d'utilisations :</label>
@@ -51,7 +51,7 @@ and open the template in the editor.
                     <INPUT type="button" name="soumettre" value="soumettre" disabled>
                 </div>
             </form>
-            <script src="formCheck.js"></script>
         </div>
+        <script src="formCheck.js"></script>
     </body>
 </html>

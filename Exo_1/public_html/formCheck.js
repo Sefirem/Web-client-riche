@@ -1,3 +1,5 @@
+/* global keypress */
+
 var nbcar = 0;
 var maj = 0;
 var min = 0;
@@ -13,6 +15,7 @@ var cgu = document.getElementById("cgu");
 age.addEventListener(keypress, verifAge());
 identifiant.addEventListener(keypress, verifId());
 mdp.addEventListener(keypress, verifMdp());
+vmdp.addEventLsitener(keypress, verifVmdp());
 
 function verifId()
 {
@@ -119,7 +122,11 @@ function verifMdp()
 }
 
 function verifVmdp() {
-
+    if(vmdp.value !== mdp.value) {
+        color(vmdp, true);
+    } else {
+        color(vmdp, false);
+    }
 }
 
 function avancement(val) {
@@ -131,4 +138,3 @@ function avancement(val) {
     var prc = document.getElementById("pourcentage");
     prc.innerHTML = ava.value + "%";
 }
-
