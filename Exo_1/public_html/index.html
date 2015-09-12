@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulaire</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    </head>
+    <body>
+        <div class="centrage">
+            <form action="test" method="post">
+                <div>
+                    <label for="prenom">Prenom :</label>
+                    <input type="text" id="prenom" />
+                </div>
+                <div>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" />
+                </div>
+                <div>
+                    <label for="age">Age :</label>
+                    <input type="text" id="age" onchange="verifAge()"/>
+                </div>
+                <div>
+                    <label for="identifiant">Identifiant :</label>
+                    <input type="text" id="identifiant" onchange="verifId()"/>
+                </div>
+                <div>
+                    <label for="mdp">Mot de passe :</label>
+                    <input type="text" id="mdp" onchange="verifMdp()"/>
+                </div>
+                <div class="bar">
+                    <label for="mdp">Puissance du mot de passe</label>
+                    <progress id="avancement" value="0" max="100" onchange="avancement()"></progress>
+                    <span id="pourcentage"></span>
+                </div>
+                <div>
+                    <label for="mdp">Confirmer le mot de passe :</label>
+                    <input type="text" id="vmdp" />
+                </div>
+                <div>
+                    <label for="cgu">J'accepte les conditions d'utilisations :</label>
+                    <INPUT type="checkbox" name="choix1" value="1" id="cgu">
+                </div>
+                <div>
+                    <INPUT type="button" name="soumettre" value="soumettre" disabled>
+                </div>
+            </form>
+            <script src="formCheck.js"></script>
+        </div>
+    </body>
+</html>
