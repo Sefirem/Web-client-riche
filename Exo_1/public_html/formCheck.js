@@ -34,6 +34,7 @@ function verifId()
             color(identifiant, true);
         } else {
             color(identifiant, false);
+            return 1;
         }
     }
 }
@@ -57,6 +58,7 @@ function verifAge()
         color(age, true);
     } else {
         color(age, false);
+        return 1;
     }
 }
 
@@ -135,6 +137,7 @@ function verifVmdp() {
         color(vmdp, true);
     } else {
         color(vmdp, false);
+        return 1;
     }
 }
 
