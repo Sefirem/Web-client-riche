@@ -22,3 +22,22 @@ label {
     display: block;
     float: left;
 }
+
+#info {
+	display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+	max-width:20%
+}
+
+.good {
+	color:green;
+}
+
+.bad {
+	color:red;
+}

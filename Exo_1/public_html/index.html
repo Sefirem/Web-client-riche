@@ -13,25 +13,26 @@ and open the template in the editor.
     </head>
     <body>
         <div class="centrage">
-            <form method="post" action="traitement.php">
+			<span id="info"></span>
+            <form method="post" action="./traitement.php">
                 <div>
-                    <label for="prenom">Prenom :</label>
+                    <label>Prenom :</label>
                     <input type="text" id="prenom" required/>
                 </div>
                 <div>
-                    <label for="nom">Nom :</label>
+                    <label>Nom :</label>
                     <input type="text" id="nom" required/>
                 </div>
                 <div>
-                    <label for="age">Age :</label>
+                    <label>Age :</label>
                     <input type="text" id="age"/>
                 </div>
                 <div>
-                    <label for="identifiant">Identifiant :</label>
+                    <label>Identifiant :</label>
                     <input type="text" id="identifiant"/>
                 </div>
                 <div>
-                    <label for="mdp">Mot de passe :</label>
+                    <label>Mot de passe :</label>
                     <input type="password" id="mdp"/>
                 </div>
                 <div>
@@ -40,15 +41,15 @@ and open the template in the editor.
                     <span id="pourcentage"></span>
                 </div>
                 <div>
-                    <label for="mdp">Confirmer le mot de passe :</label>
+                    <label>Confirmer le mot de passe :</label>
                     <input type="password" id="vmdp"/>
                 </div>
                 <div>
-                    <label for="cgu">J'accepte les conditions d'utilisations :</label>
+                    <label>J'accepte les conditions d'utilisations :</label>
                     <input type="checkbox" name="choix1" value="1" id="cgu">
                 </div>
                 <div>
-                    <input type="button" value="soumettre" id="soumettre">
+                    <input type="submit" value="soumettre" id="soumettre">
                 </div>
             </form>
         </div>
