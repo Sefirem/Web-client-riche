@@ -1,11 +1,17 @@
-/* global keypress */
-
+//Variable de verification mot de passe
 var nbcar = 0;
 var maj = 0;
 var min = 0;
 var chiffre = 0;
 var autre = 0;
 
+//Variable de verification des champs
+var ageIsCorrect = false;
+var idIsCorrect = false;
+var mdpIsCorrect = false;
+var vmdpIsCorrect = false;
+
+//Récupération des elements 
 var age = document.getElementById("age");
 var identifiant = document.getElementById("identifiant");
 var mdp = document.getElementById("mdp");
@@ -14,27 +20,35 @@ var cgu = document.getElementById("cgu");
 var soumettre = document.getElementById("soumettre");
 var ava = document.getElementById("avancement");
 
-age.addEventListener(keypress, verifAge());
-identifiant.addEventListener(keypress, verifId());
-mdp.addEventListener(keypress, verifMdp());
-vmdp.addEventLsitener(keypress, verifVmdp());
-cgu.addEventListener(keypress, verifCGU());
+//disable le bouton
+soumettre.disabled = true;
 
-function verifId()
-{
+//Ajout des évènement a chque champs
+age.addEventListener('keyup', verifAge);
+identifiant.addEventListener('keyup', verifId);
+mdp.addEventListener('keyup', verifMdp);
+vmdp.addEventListener('keyup', verifVmdp);
+cgu.addEventListener('click', vcgu);
+
+function verifId(){
     var regexp = /[A-Z]/gi;
     var tab = identifiant.value.match(regexp);
 
     if (identifiant.value.length < 1 || identifiant.value.length > 12)
     {
         color(identifiant, true);
+		idIsCorrect = false;
+		enableSoumettre();
     } else {
         var temp = tab === null ? 0 : tab.length;
         if (temp !== identifiant.value.length) {
             color(identifiant, true);
+			idIsCorrect = false;
+			enableSoumettre();
         } else {
             color(identifiant, false);
-            return 1;
+			idIsCorrect = true;
+			enableSoumettre();
         }
     }
 }
@@ -48,22 +62,23 @@ function color(champ, error) {
     }
 }
 
-function verifAge()
-{
+function verifAge() {
     var regexp = /[A-Z]/gi;
     var tab = age.value.match(regexp);
 
     if (age.value < 18 || tab !== null || age.value > 150)
     {
         color(age, true);
+		ageIsCorrect = false;
+		enableSoumettre();
     } else {
         color(age, false);
-        return 1;
+		ageIsCorrect = true;
+        enableSoumettre();
     }
 }
 
-function verifMdp()
-{
+function verifMdp() {
     var regexp = /[A-Z]/g;
     var tab = mdp.value.match(regexp);
 
@@ -127,17 +142,24 @@ function verifMdp()
     
     if(ava.value === 100) {
         color(mdp, false);
+		mdpIsCorrect = true;
     } else if(ava.value !== 100) {
         color(mdp, true);
+		mdpIsCorrect = false;
     }
+	verifVmdp();
+	enableSoumettre();
 }
 
 function verifVmdp() {
     if (vmdp.value !== mdp.value) {
         color(vmdp, true);
+		vmdpIsCorrect = false;
+		enableSoumettre();
     } else {
         color(vmdp, false);
-        return 1;
+		vmdpIsCorrect = true;
+        enableSoumettre();
     }
 }
 
@@ -151,10 +173,14 @@ function avancement(val) {
     prc.innerHTML = ava.value + "%";
 }
 
-function verifCGU() {
-    if (cgu.checked && verifId(true) && verifVmdp(true) && verifAge(true)) {
+function vcgu() {
+	enableSoumettre();
+}
+
+function enableSoumettre() {
+    if (cgu.checked && ageIsCorrect && idIsCorrect && mdpIsCorrect && vmdpIsCorrect) {
         soumettre.disabled = false;
     } else {
-        soumettre.disabled =true;
-    }
+        soumettre.disabled = true;
+    }	
 }

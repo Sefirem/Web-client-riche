@@ -13,26 +13,26 @@ and open the template in the editor.
     </head>
     <body>
         <div class="centrage">
-            <form action="test" method="post">
+            <form method="post" action="traitement.php">
                 <div>
                     <label for="prenom">Prenom :</label>
-                    <input type="text" id="prenom" />
+                    <input type="text" id="prenom" required/>
                 </div>
                 <div>
                     <label for="nom">Nom :</label>
-                    <input type="text" id="nom" />
+                    <input type="text" id="nom" required/>
                 </div>
                 <div>
                     <label for="age">Age :</label>
-                    <input type="text" id="age" onchange="verifAge()"/>
+                    <input type="text" id="age"/>
                 </div>
                 <div>
                     <label for="identifiant">Identifiant :</label>
-                    <input type="text" id="identifiant" onchange="verifId()"/>
+                    <input type="text" id="identifiant"/>
                 </div>
                 <div>
                     <label for="mdp">Mot de passe :</label>
-                    <input type="text" id="mdp" onchange="verifMdp()"/>
+                    <input type="text" id="mdp"/>
                 </div>
                 <div>
                     <label for="mdp">Puissance du mot de passe</label>
@@ -41,17 +41,17 @@ and open the template in the editor.
                 </div>
                 <div>
                     <label for="mdp">Confirmer le mot de passe :</label>
-                    <input type="text" id="vmdp" onchange="verifVmdp()"/>
+                    <input type="text" id="vmdp"/>
                 </div>
                 <div>
                     <label for="cgu">J'accepte les conditions d'utilisations :</label>
-                    <INPUT type="checkbox" name="choix1" value="1" id="cgu" onchange="verifCGU()">
+                    <input type="checkbox" name="choix1" value="1" id="cgu">
                 </div>
                 <div>
-                    <INPUT type="button" name="soumettre" value="soumettre" id="soumettre" disabled>
+                    <input type="button" value="soumettre" id="soumettre">
                 </div>
             </form>
         </div>
-        <script src="formCheck.js"></script>
+		<script type="text/javascript" src="formCheck.js"></script>
     </body>
 </html>
