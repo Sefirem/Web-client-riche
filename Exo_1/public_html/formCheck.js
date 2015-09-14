@@ -144,7 +144,7 @@ function verifMdp() {
 		}       
 		messageAge += '<li class=\"good\">Une minuscule</li>';
     }
-    else if (tab1 === null && min === 1) {
+    else if (tab1 === null) {
 		if(min === 1)
 		{
 			avancement(-20);
