@@ -4,7 +4,17 @@ btnplus.addEventListener('click', bPlus);
 setHeure();
 function setHeure() {
     var heure = new Date();
-    document.getElementById("heure").innerHTML = heure.getHours() + ':' + heure.getMinutes() + ':' + heure.getSeconds();
+	var min = heure.getMinutes();
+	if(min < 10)
+	{
+		min = '0' + min; 
+	}
+	var sec = heure.getSeconds();
+	if(sec < 10)
+	{
+		sec = '0' + sec; 
+	}
+    document.getElementById("heure").innerHTML = heure.getHours() + ':' + min + ':' + sec;
     checkReveil(heure);
 }
 setInterval(function () {
