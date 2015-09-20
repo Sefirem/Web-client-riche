@@ -1,7 +1,29 @@
+html {
+    background-color : grey;
+    margin : auto;
+}
+
+body {
+	width:60%;
+	background-color:white;
+	border-radius:20px;
+	margin-left:auto;
+	margin-right:auto;
+	padding:10px;
+	min-width:405px;
+}
+
+#heure {
+	font-size:100px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
 #event div {
 	background-color:#BDBDBD;
 }
 
 h1 {
-    font-size: 250px;
+    font-size: 150px;
 }

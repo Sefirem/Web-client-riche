@@ -113,7 +113,13 @@ function checkReveil(heure) {
             var champ = reveil[i].getElementsByClassName("title")[0];
             var msg = document.getElementById("msg");
             if (parseInt(heure.getHours()) === parseInt(h.value) && parseInt(heure.getMinutes()) === parseInt(m.value) && parseInt(0) === parseInt(heure.getSeconds())) {
-                new Audio('sound/' + choix.value + '.mp3').play();
+                var audio = new Audio('sound/' + choix.value + '.mp3');
+				audio.loop = true;
+				audio.play();
+				setTimeout(function() {
+					audio.pause();
+					msg.textContent = "";
+				}, 30000);
                 msg.textContent = champ.value;
             }
         }
