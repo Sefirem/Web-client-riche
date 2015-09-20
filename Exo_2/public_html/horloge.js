@@ -114,13 +114,26 @@ function checkReveil(heure) {
             var msg = document.getElementById("msg");
             if (parseInt(heure.getHours()) === parseInt(h.value) && parseInt(heure.getMinutes()) === parseInt(m.value) && parseInt(0) === parseInt(heure.getSeconds())) {
                 var audio = new Audio('sound/' + choix.value + '.mp3');
+				var btnStop = document.createElement("button");
 				audio.loop = true;
 				audio.play();
 				setTimeout(function() {
 					audio.pause();
 					msg.textContent = "";
+					btnStop.parentNode.removeChild(btnStop);
 				}, 30000);
                 msg.textContent = champ.value;
+				var btnStop = document.createElement("button");
+				btnStop.appendChild(document.createTextNode("Stop"));
+				btnStop.setAttribute("class", "stop");
+				
+				reveil[i].appendChild(btnStop);
+				
+				btnStop.addEventListener('click', function (evt) {
+					audio.pause();
+					var suppr = evt.target;
+					suppr.parentNode.removeChild(suppr);
+				});
             }
         }
     }
