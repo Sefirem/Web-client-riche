@@ -3,19 +3,20 @@ btnplus.addEventListener('click', bPlus);
 
 setHeure();
 function setHeure() {
-    var heure = new Date();
-	var min = heure.getMinutes();
+    var date = new Date();
+	var min = date.getMinutes();
 	if(min < 10)
 	{
 		min = '0' + min; 
 	}
-	var sec = heure.getSeconds();
+	var sec = date.getSeconds();
 	if(sec < 10)
 	{
 		sec = '0' + sec; 
 	}
-    document.getElementById("heure").innerHTML = heure.getHours() + ':' + min + ':' + sec;
-    checkReveil(heure);
+	document.getElementById("date").innerHTML = date.getDate() + " / " + parseInt(date.getMonth()+1) + " / " + date.getFullYear();
+    document.getElementById("heure").innerHTML = date.getHours() + ':' + min + ':' + sec;
+    checkReveil(date);
 }
 setInterval(function () {
     setHeure();
@@ -141,6 +142,7 @@ function checkReveil(heure) {
 				
 				btnStop.addEventListener('click', function (evt) {
 					audio.pause();
+					msg.textContent = "";
 					var suppr = evt.target;
 					suppr.parentNode.removeChild(suppr);
 				});

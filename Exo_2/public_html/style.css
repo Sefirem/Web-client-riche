@@ -10,7 +10,12 @@ body {
 	margin-left:auto;
 	margin-right:auto;
 	padding:10px;
-	min-width:405px;
+	min-width:450px;
+}
+
+#date {
+	font-family: 'Exo 2', sans-serif;
+	font-size:20px;
 }
 
 #heure {
@@ -18,6 +23,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	font-family: 'Exo 2', sans-serif;
 }
 
 #event div {
